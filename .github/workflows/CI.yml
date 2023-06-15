@@ -20,7 +20,7 @@ jobs:
     - name: Install LaTeX
       run: |
         sudo apt update
-        sudo apt install -y texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra latexmk texlive-lang-greek texlive-luatex texlive-xetex texlive-fonts-extra dvipng librsvg2-bin graphviz
+        sudo apt install -y tectonic
     - name: Build HTML
       run: |
         make html
@@ -31,7 +31,8 @@ jobs:
         path: build/html/
     - name: Build PDF
       run: |
-        make latexpdf
+        make latex
+        tectonic build/latex/GameManual0.tex
     - name: Archive PDF
       uses: actions/upload-artifact@v2
       with:
