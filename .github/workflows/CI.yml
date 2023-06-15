@@ -20,6 +20,8 @@ jobs:
     - name: Install LaTeX
       run: |
         curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net |sh
+        sudo apt update
+        sudo apt install -y fonts-roboto graphviz
     - name: Build HTML
       run: |
         make html
